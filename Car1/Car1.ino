@@ -1,3 +1,5 @@
+// shreyank and krutharth are working on this 
+
 #include <AFMotor.h> // including the motor driver library
 
 // seting up the motors
