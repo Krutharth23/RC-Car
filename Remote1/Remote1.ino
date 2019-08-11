@@ -6,7 +6,7 @@ int joystick2=A1;
 int joystick1Val;
 int joystick2Val;
 
-//int = state;
+int  rtate;
 
 void setup() {
   // setting baudrate for BT module
@@ -24,18 +24,26 @@ void loop() {
 
   // sending the approiate value as per the joystick
   if (joystick1Val > 700){
-    Serial.write(1);
+    //Serial.write(1);
+    rtate = 1;
   }
   else if (joystick1Val < 300){
-    Serial.write(2);
+   // Serial.write(2);
+    rtate = 2;
   }
   else if (joystick2Val < 300){
-    Serial.write(3);
+    //Serial.write(3);
+    
+    rtate = 1;
   }
   else if (joystick2Val > 700){
-    Serial.write(4);
+    //Serial.write(4);
+    
+    rtate = 1;
   }
   else{
-    Serial.write(0);
+    //Serial.write(0);
+    rtate = 0;
   }
+  Serial.write(rtate);
 }
