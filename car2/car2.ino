@@ -1,3 +1,5 @@
+// shreyank and krutharth are working on this 
+
 #include <AFMotor.h> // including the motor driver library
 
 // seting up the motors
@@ -19,15 +21,12 @@ void loop() {
   //reading the value from BT module
   BT_Input=Serial.read();
 
-  if(BT_Input == 0){ Halt();} 
-  if(BT_Input == 1){ Forward();}
-  if(BT_Input == 2){ Backward();}
-  if(BT_Input == 3){ Left();}
-  if(BT_Input == 4){ Right();}
-  
-}
-// to run the car forward
-void Forward() { 
+  if(BT_Input == 0){ 
+  F_R_Motor.run(RELEASE);
+  F_L_Motor.run(RELEASE);
+  B_R_Motor.run(RELEASE);
+  B_L_Motor.run(RELEASE);} 
+  if(BT_Input == 1){ 
   F_R_Motor.run(FORWARD);
   F_R_Motor.setSpeed(220);
   F_L_Motor.run(FORWARD);
@@ -36,11 +35,10 @@ void Forward() {
   B_R_Motor.setSpeed(220);
   B_L_Motor.run(FORWARD);
   B_L_Motor.setSpeed(220);
-}
-
-// to run the car backward
-void Backward() { 
-  F_R_Motor.run(BACKWARD);
+  //Serial.print("hi");
+  }
+  if(BT_Input == 2){ 
+   F_R_Motor.run(BACKWARD);
   F_R_Motor.setSpeed(225);
   F_L_Motor.run(BACKWARD);
   F_L_Motor.setSpeed(225);
@@ -48,23 +46,17 @@ void Backward() {
   B_R_Motor.setSpeed(225);
   B_L_Motor.run(BACKWARD);
   B_L_Motor.setSpeed(225);
-}
-
-// to turn the car to the left
-void Left() {
-   F_R_Motor.run(FORWARD);
+  }
+  if(BT_Input == 3){ 
+  F_R_Motor.run(FORWARD);
   F_R_Motor.setSpeed(225);
   F_L_Motor.run(FORWARD);
   F_L_Motor.setSpeed(225);
   B_R_Motor.run(BACKWARD);
   B_R_Motor.setSpeed(225);
   B_L_Motor.run(BACKWARD);
-  B_L_Motor.setSpeed(225);
-}
-
-
-// to turn the car to the right
-void Right() {
+  B_L_Motor.setSpeed(225);}
+  if(BT_Input == 4){ 
   F_R_Motor.run(BACKWARD);
   F_R_Motor.setSpeed(225);
   F_L_Motor.run(BACKWARD);
@@ -72,13 +64,6 @@ void Right() {
   B_R_Motor.run(FORWARD);
   B_R_Motor.setSpeed(225);
   B_L_Motor.run(FORWARD);
-  B_L_Motor.setSpeed(225);
-}
-
-// to halt the car
-void Halt() {
-  F_R_Motor.run(RELEASE);
-  F_L_Motor.run(RELEASE);
-  B_R_Motor.run(RELEASE);
-  B_L_Motor.run(RELEASE);
+  B_L_Motor.setSpeed(225);}
+  
 }

@@ -5,25 +5,21 @@ AF_DCMotor F_R_Motor(1);
 AF_DCMotor F_L_Motor(2);
 AF_DCMotor B_R_Motor(3);
 AF_DCMotor B_L_Motor(4);
-
-// initializing the default value for the bluetooth signal
-int BT_Input = 10; 
-
 void setup() {
-  // setting up the baudrate for bluetooth module
-  Serial.begin(38400);
-  
+  // put your setup code here, to run once:
+
 }
-
 void loop() {
-  //reading the value from BT module
-  BT_Input=Serial.read();
-
-  if(BT_Input == 0){ Halt();} 
-  if(BT_Input == 1){ Forward();}
-  if(BT_Input == 2){ Backward();}
-  if(BT_Input == 3){ Left();}
-  if(BT_Input == 4){ Right();}
+  Halt(); 
+  delay(5000);
+  Forward();
+  delay(5000);
+  Backward();
+  delay(5000);
+  Left();
+  delay(5000);
+  Right();
+  delay(5000);
   
 }
 // to run the car forward
