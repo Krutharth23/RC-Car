@@ -15,6 +15,8 @@ void setup() {
   // intilising the joysticks
   pinMode(joystick1, INPUT);
   pinMode(joystick2, INPUT);
+  pinMode(12, OUTPUT);
+  digitalWrite(12,HIGH);
 }
 
 void loop() {
@@ -23,27 +25,24 @@ void loop() {
   joystick2Val = analogRead(joystick2);
 
   // sending the approiate value as per the joystick
-  if (joystick1Val > 700){
-    //Serial.write(1);
-    rtate = 1;
+  if (joystick1Val > 900){
+    Serial.write(1);
+    delay(5);
   }
-  else if (joystick1Val < 300){
-   // Serial.write(2);
-    rtate = 2;
+  else if (joystick1Val < 100){
+    Serial.write(2);
+    delay(5);
   }
-  else if (joystick2Val < 300){
-    //Serial.write(3);
-    
-    rtate = 1;
+  else if (joystick2Val < 100){
+    Serial.write(3);
+    delay(5);
   }
-  else if (joystick2Val > 700){
-    //Serial.write(4);
-    
-    rtate = 1;
+  else if (joystick2Val > 900){
+    Serial.write(4);
+    delay(5);
   }
   else{
-    //Serial.write(0);
-    rtate = 0;
+    Serial.write(0);
+    delay(5);
   }
-  Serial.write(rtate);
 }

@@ -19,6 +19,7 @@ void setup() {
 
 void loop() {
   //reading the value from BT module
+ // while(Serial.available()==0){}
   BT_Input=Serial.read();
 
   if(BT_Input == 0){ 
@@ -28,14 +29,13 @@ void loop() {
   B_L_Motor.run(RELEASE);} 
   if(BT_Input == 1){ 
   F_R_Motor.run(FORWARD);
-  F_R_Motor.setSpeed(220);
+  F_R_Motor.setSpeed(225);
   F_L_Motor.run(FORWARD);
-  F_L_Motor.setSpeed(220);
+  F_L_Motor.setSpeed(225);
   B_R_Motor.run(FORWARD);
-  B_R_Motor.setSpeed(220);
+  B_R_Motor.setSpeed(225);
   B_L_Motor.run(FORWARD);
-  B_L_Motor.setSpeed(220);
-  //Serial.print("hi");
+  B_L_Motor.setSpeed(225);
   }
   if(BT_Input == 2){ 
    F_R_Motor.run(BACKWARD);

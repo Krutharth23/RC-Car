@@ -48,7 +48,8 @@ void Backward() {
 
 // to turn the car to the left
 void Left() {
-   F_R_Motor.run(FORWARD);
+  
+  F_R_Motor.run(FORWARD);
   F_R_Motor.setSpeed(225);
   F_L_Motor.run(FORWARD);
   F_L_Motor.setSpeed(225);
